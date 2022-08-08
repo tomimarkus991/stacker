@@ -8,6 +8,7 @@ import {
   LineBasicMaterial,
   Vector3,
 } from "three";
+
 // import RobotoFont from "../../assets/fonts/RobotoLight.json";
 import {
   GameEnded,
@@ -42,14 +43,14 @@ export const init = (
   world.current.gravity.set(0, -10, 0);
   world.current.broadphase = new NaiveBroadphase();
   world.current.solver.iterations = 40;
-  let stored: any = localStorage.getItem("highScore");
+  const stored: any = localStorage.getItem("highScore");
 
   if (stored !== null) {
-    let path = new CatmullRomCurve3([
+    const path = new CatmullRomCurve3([
       new Vector3(-3, parseInt(stored), 0),
       new Vector3(15, parseInt(stored), 0),
     ]);
-    let points = path.getPoints(50);
+    const points = path.getPoints(50);
 
     const geometry = new BufferGeometry().setFromPoints(points);
 

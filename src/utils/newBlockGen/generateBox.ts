@@ -1,12 +1,7 @@
 import { Body, Box as CannonBox, Vec3 } from "cannon";
 import { BoxGeometry, Color, Mesh, MeshLambertMaterial } from "three";
-import {
-  DirectionType,
-  MainScene,
-  MainWorld,
-  RandomNumber,
-  StackArray,
-} from "../../types";
+
+import { DirectionType, MainScene, MainWorld, RandomNumber, StackArray } from "../../types";
 export const generateBox = (
   x: number,
   y: number,
@@ -24,9 +19,7 @@ export const generateBox = (
   const geometry = new BoxGeometry(width, boxHeight, depth);
 
   // generates cube color (hue saturation and lightness) based on stack length
-  const color = new Color(
-    `hsl(${randomNumber.current + stack.current.length * 7}, 100%, 50%)`
-  );
+  const color = new Color(`hsl(${randomNumber.current + stack.current.length * 7}, 100%, 50%)`);
 
   const material = new MeshLambertMaterial({
     color,
@@ -44,7 +37,7 @@ export const generateBox = (
 
   const shape = new CannonBox(new Vec3(width / 2, boxHeight / 2, depth / 2));
 
-  let mass = falls ? 5 : 0;
+  const mass = falls ? 5 : 0;
 
   const body = new Body({ mass, shape });
   body.position.set(x, y, z);

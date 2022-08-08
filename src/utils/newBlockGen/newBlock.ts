@@ -14,6 +14,7 @@ import { addLayer } from "../layers/addLayer";
 import { missedTheSpot } from "../miss/missedSpot";
 import { addOverhang } from "../overhangBlockGen/addOverhang";
 import { cutBox } from "../overhangBlockGen/cutBox";
+
 import { playBlockEffectSound } from "./playBlockEffectSound";
 import { streakSound } from "./streakSound";
 
@@ -32,18 +33,16 @@ export const newBlock = (
 ) => {
   if (gameEnded.current) return;
 
-  let boxSpawnDistance = -5;
+  const boxSpawnDistance = -5;
   const topLayer = stack.current[stack.current.length - 1];
   const previousLayer = stack.current[stack.current.length - 2];
 
   const direction = topLayer.direction;
 
-  const delta =
-    topLayer.threejs.position[direction] -
-    previousLayer.threejs.position[direction];
+  const delta = topLayer.threejs.position[direction] - previousLayer.threejs.position[direction];
 
   // how big is the oversize, makes it positive
-  let overhangSize = Math.abs(delta);
+  const overhangSize = Math.abs(delta);
 
   // const player = new Tone.Player(blockCut).toDestination();
   // Tone.loaded().then(() => {
@@ -91,10 +90,8 @@ export const newBlock = (
       );
 
       // Next layer
-      const nextX =
-        direction === "x" ? topLayer.threejs.position.x : boxSpawnDistance;
-      const nextZ =
-        direction === "z" ? topLayer.threejs.position.z : boxSpawnDistance;
+      const nextX = direction === "x" ? topLayer.threejs.position.x : boxSpawnDistance;
+      const nextZ = direction === "z" ? topLayer.threejs.position.z : boxSpawnDistance;
 
       const newWidth = topLayer.width;
       const newDepth = topLayer.depth;
@@ -133,10 +130,8 @@ export const newBlock = (
     topLayer.threejs.position.x = previousLayer.threejs.position.x;
     topLayer.threejs.position.z = previousLayer.threejs.position.z;
     // Next layer
-    const nextX =
-      direction === "x" ? topLayer.threejs.position.x : boxSpawnDistance;
-    const nextZ =
-      direction === "z" ? topLayer.threejs.position.z : boxSpawnDistance;
+    const nextX = direction === "x" ? topLayer.threejs.position.x : boxSpawnDistance;
+    const nextZ = direction === "z" ? topLayer.threejs.position.z : boxSpawnDistance;
 
     const newWidth = topLayer.width;
     const newDepth = topLayer.depth;

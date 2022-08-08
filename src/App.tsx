@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { OrthographicCamera, Scene, WebGLRenderer } from "three";
 import { Distortion } from "tone";
+
 import customTheme from "./theme";
 import { Layer } from "./types";
 import { resizeCameraForSmallerScreens } from "./utils/camera/resizeCameraForSmallerScreens";
@@ -14,12 +15,12 @@ import { renderScene } from "./utils/render/renderScene";
 
 export const App = () => {
   const boxHeight = 1;
-  let originalBoxSize = 3;
+  const originalBoxSize = 3;
   const [score, setScore] = useState(0);
-  let aspect = window.innerWidth / window.innerHeight;
-  let size = 10;
-  let stack = React.useRef<Layer[]>([]);
-  let overhangs = React.useRef<Layer[]>([]);
+  const aspect = window.innerWidth / window.innerHeight;
+  const size = 10;
+  const stack = React.useRef<Layer[]>([]);
+  const overhangs = React.useRef<Layer[]>([]);
   const gameStarted = React.useRef<boolean>(false);
   const gameEnded = React.useRef<boolean>(false);
   const isMobile = React.useRef<boolean>(false);
@@ -54,7 +55,7 @@ export const App = () => {
     );
 
     window.addEventListener("click", (e: MouseEvent) => {
-      let element = e.target as HTMLElement;
+      const element = e.target as HTMLElement;
       if (element.tagName === "CANVAS") {
         if (gameEnded.current === false) {
           startGame(
@@ -77,8 +78,8 @@ export const App = () => {
         }
       }
     });
-    let checkMobile = () => {
-      let UserAgent = navigator.userAgent;
+    const checkMobile = () => {
+      const UserAgent = navigator.userAgent;
 
       if (
         UserAgent.match(
@@ -100,7 +101,7 @@ export const App = () => {
     }
 
     window.addEventListener("resize", () => {
-      var aspect = window.innerWidth / window.innerHeight;
+      const aspect = window.innerWidth / window.innerHeight;
 
       if (window.innerWidth <= 900) {
         camera.current.left = (size * aspect) / -1.7;

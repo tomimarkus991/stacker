@@ -33,7 +33,7 @@ export const startGame = (
 
   if (gameStarted.current === false) {
     renderer.current.setAnimationLoop(() => {
-      let { howFar } = animSpeed(stack);
+      const { howFar } = animSpeed(stack);
 
       if (howFar >= 5 && gameEnded.current === false) {
         missedTheSpot(

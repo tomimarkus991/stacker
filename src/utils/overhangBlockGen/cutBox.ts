@@ -1,4 +1,5 @@
 import { Box as CannonBox, Vec3 } from "cannon";
+
 import { Layer } from "../../types";
 export const cutBox = (
   topLayer: Layer,
@@ -20,9 +21,7 @@ export const cutBox = (
 
   topLayer.cannonjs.position[direction] -= delta / 2;
 
-  const shape = new CannonBox(
-    new Vec3(newWidth / 2, boxHeight / 2, newDepth / 2)
-  );
+  const shape = new CannonBox(new Vec3(newWidth / 2, boxHeight / 2, newDepth / 2));
 
   topLayer.cannonjs.shapes = [];
   topLayer.cannonjs.addShape(shape);

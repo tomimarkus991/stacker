@@ -1,11 +1,5 @@
-import {
-  DirectionType,
-  Layer,
-  MainScene,
-  MainWorld,
-  RandomNumber,
-  StackArray,
-} from "../../types";
+import { DirectionType, Layer, MainScene, MainWorld, RandomNumber, StackArray } from "types";
+
 import { generateBox } from "../newBlockGen/generateBox";
 
 export const addLayer = (

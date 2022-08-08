@@ -1,12 +1,7 @@
 import { Body, Box as CannonBox, Vec3 } from "cannon";
 import { BoxGeometry, Color, Mesh, MeshLambertMaterial } from "three";
-import {
-  DirectionType,
-  MainScene,
-  MainWorld,
-  RandomNumber,
-  StackArray,
-} from "../../types";
+
+import { DirectionType, MainScene, MainWorld, RandomNumber, StackArray } from "../../types";
 export const generateOverhangBox = (
   x: number,
   y: number,
@@ -39,7 +34,7 @@ export const generateOverhangBox = (
 
   const shape = new CannonBox(new Vec3(width / 2, boxHeight / 2, depth / 2));
 
-  let mass = falls ? 5 : 0;
+  const mass = falls ? 5 : 0;
 
   const body = new Body({ mass, shape });
   body.position.set(x, y, z);

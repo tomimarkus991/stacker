@@ -18,14 +18,14 @@ export const boxAnimation = (
   renderer: MainRenderer,
   scene: MainScene
 ) => {
-  let { speed, topLayer, howFar } = animSpeed(stack);
+  const { speed, topLayer, howFar } = animSpeed(stack);
 
   if (howFar <= 5) {
     topLayer.threejs.position[topLayer.direction] += speed;
     topLayer.cannonjs.position[topLayer.direction] += speed;
   }
 
-  let calc = stack.current.length + 5;
+  const calc = stack.current.length + 5;
 
   // let calc = stack.current.length + 2.5;
 

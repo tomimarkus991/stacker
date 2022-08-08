@@ -1,4 +1,5 @@
 import * as Tone from "tone";
+
 import { Streak } from "../../types";
 export const streakSound = (streak: Streak) => {
   const synth = new Tone.Synth().toDestination();

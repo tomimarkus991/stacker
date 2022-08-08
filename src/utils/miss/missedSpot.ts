@@ -45,15 +45,15 @@ export const missedTheSpot = (
   scene.current.remove(topLayer.threejs);
 
   requestAnimationFrame(() => endGameAnimation(camera));
-  let restart = document.getElementById("restart");
-  let highscore = document.getElementById("highscore");
+  const restart = document.getElementById("restart");
+  const highscore = document.getElementById("highscore");
   if (restart) {
     restart.classList.remove("ins1");
     restart.classList.add("ins2");
   }
-  let stored: any = localStorage.getItem("highScore");
-  let currentHighScore = parseInt(stored);
-  let score = stack.current.length - 2;
+  const stored: any = localStorage.getItem("highScore");
+  const currentHighScore = parseInt(stored);
+  const score = stack.current.length - 2;
   if (stored === null) {
     localStorage.setItem("highScore", (0).toString());
   }

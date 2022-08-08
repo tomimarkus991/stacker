@@ -1,11 +1,5 @@
-import {
-  Layer,
-  MainScene,
-  MainWorld,
-  OverhangsArray,
-  RandomNumber,
-  StackArray,
-} from "../../types";
+import { Layer, MainScene, MainWorld, OverhangsArray, RandomNumber, StackArray } from "../../types";
+
 import { generateOverhangBox } from "./generateOverhangBox";
 
 export const addOverhang = (

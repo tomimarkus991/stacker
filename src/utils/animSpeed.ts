@@ -5,6 +5,6 @@ export const animSpeed = (stack: StackArray) => {
 
   const topLayer: Layer = stack.current[stack.current.length - 1];
 
-  let howFar = topLayer.threejs.position[topLayer.direction] + speed;
+  const howFar = topLayer.threejs.position[topLayer.direction] + speed;
   return { speed, topLayer, howFar };
 };
